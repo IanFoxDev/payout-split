@@ -1,0 +1,44 @@
+2026-07, rules v1, pool 25000.00 USD
+  partner       earned carried in       paid    carried
+  aurora      14513.45       0.00   14513.45       0.00
+  birch       10216.25       0.00   10216.25       0.00
+  cobalt        240.32       0.00     240.32       0.00
+  dune           29.98       0.00       0.00      29.98
+
+2026-08, rules v1, pool 23800.00 USD
+  partner       earned carried in       paid    carried
+  aurora      13121.26       0.00   13121.26       0.00
+  birch       10399.16       0.00   10399.16       0.00
+  cobalt        262.47       0.00     262.47       0.00
+  dune           17.11      29.98       0.00      47.09
+
+2026-09, rules v2, pool 26155.11 USD
+  partner       earned carried in       paid    carried
+  aurora      16027.30       0.00   16027.30       0.00
+  birch        9727.79       0.00    9727.79       0.00
+  cobalt        388.93       0.00     388.93       0.00
+  dune           11.08      47.09      58.17       0.00
+  platform        0.01       0.00       0.01       0.00
+
+How dune's September payout was calculated:
+  partner          dune
+  period           2026-09
+  rules_version    v2
+  currency         USD
+  pool             2615511
+  weight           900
+  total_weight     2124382
+  exact_share      2615511 * 900 / 2124382
+  base_share       1108
+  remainder_units  0
+  remainder_rule   house_account
+  carried_in       4709
+  minimum_payout   2500
+  payout           5817
+  carried_out      0
+
+Running July again with new data: refused.
+  Period 2026-07 of scheme "studios" was already run with input 8fe255218fce and rules 8a3002e9f07a; this call has input 7b5aa52f0c2c and rules 8a3002e9f07a. Closed periods are not recalculated with new data.
+
+Running July again with the same data: aurora 14513.45 USD, as before.
+July recalculated from what was stored matches: yes
