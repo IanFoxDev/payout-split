@@ -7,7 +7,9 @@ authors by sales, affiliates by referred revenue. The shares always add up to th
 amounts below a minimum payout are carried over to the next period, and a closed period
 recalculated later gives the same result, byte for byte.
 
-> Status: in development, nothing released yet.
+> Status: v0.1. Until 1.0 a minor version may change the API; such changes are marked
+> **BREAKING** in the [CHANGELOG](CHANGELOG.md). Results for an existing input never
+> change silently: that would break `verify()` on stored runs.
 
 The usual way to do this is a script: take the pool, multiply by each weight, divide,
 round. Then the rounded shares add up to a few cents more or less than the pool, a

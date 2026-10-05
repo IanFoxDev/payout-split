@@ -7,6 +7,12 @@ API; such changes are marked **BREAKING**.
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-10-05
+
+The first release: a pool split by weights so the shares always add up to it, a minimum
+payout with carry-over, and periods that are calculated once and can be verified later.
+PostgreSQL and MySQL storage.
+
 ### Added
 
 - `Allocation::split()`: splits an amount in minor units by integer weights with the
@@ -21,3 +27,6 @@ API; such changes are marked **BREAKING**.
   recalculates a stored period and compares it byte for byte.
 - `PdoRunRepository` for PostgreSQL and MySQL with schemas in `schema/`, and
   `InMemoryRunRepository`.
+
+[Unreleased]: https://github.com/IanFoxDev/payout-split/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/IanFoxDev/payout-split/releases/tag/v0.1.0
