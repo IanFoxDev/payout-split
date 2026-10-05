@@ -54,6 +54,38 @@ final readonly class Input
     }
 
     /**
+     * Reads back what canonical() wrote.
+     */
+    public static function fromCanonical(string $json): self
+    {
+        $data = json_decode($json, true, 8, JSON_THROW_ON_ERROR);
+        if (!is_array($data) || !is_string($data['period'] ?? null) || !is_string($data['currency'] ?? null) || !is_int($data['pool'] ?? null)
+            || !is_array($data['weights'] ?? null) || !is_array($data['carried_over'] ?? null)) {
+            throw new \InvalidArgumentException('Not a canonical payout-split input.');
+        }
+
+        return new self(Period::named($data['period']), Money::of($data['pool'], $data['currency']), self::ints($data['weights']), self::ints($data['carried_over']));
+    }
+
+    /**
+     * @param array<mixed> $values
+     *
+     * @return array<string, int>
+     */
+    private static function ints(array $values): array
+    {
+        $out = [];
+        foreach ($values as $k => $v) {
+            if (!is_int($v)) {
+                throw new \InvalidArgumentException(sprintf('"%s" is not an integer.', $k));
+            }
+            $out[(string) $k] = $v;
+        }
+
+        return $out;
+    }
+
+    /**
      * @param iterable<string|int, int> $values
      *
      * @return array<array-key, int>

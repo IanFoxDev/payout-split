@@ -45,6 +45,20 @@ final readonly class Rules
     }
 
     /**
+     * @param array<mixed> $data what toArray() returned
+     */
+    public static function fromArray(array $data): self
+    {
+        $remainder = Remainder::tryFrom(is_string($data['remainder'] ?? null) ? $data['remainder'] : '');
+        $house = $data['house_account'] ?? null;
+        if (!is_string($data['version'] ?? null) || $remainder === null || !is_int($data['minimum_payout'] ?? null) || !(is_string($house) || $house === null)) {
+            throw new \InvalidArgumentException('Not a payout-split rules array.');
+        }
+
+        return new self($data['version'], $remainder, $data['minimum_payout'], $house);
+    }
+
+    /**
      * SHA-256 of the rules, so two rule sets with the same version but different
      * contents are told apart.
      */
