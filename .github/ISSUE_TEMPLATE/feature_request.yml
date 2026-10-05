@@ -1,0 +1,15 @@
+name: Feature request
+description: A payout rule or integration you need
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: case
+    attributes:
+      label: The payout scheme
+      description: Who is paid, from what pool, by what rule; an example with numbers.
+    validations:
+      required: true
+  - type: textarea
+    id: today
+    attributes:
+      label: How you handle it today
